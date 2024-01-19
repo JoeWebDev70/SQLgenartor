@@ -1,0 +1,222 @@
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(./ressources/fonts/nunito_sans_400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(./ressources/fonts/nunito_sans_700.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  font-size: 100%;
+  --colorNoActive: #234B68;
+  --colorActive: #29517F;
+  --colorSuccess: #1092f1;
+  --colorError: #FF822E;
+  --colorBlack: #030303;
+  --colorWhite: #FCFCFC;
+  --colorRingShadow: 0 0 #0000;
+  --colorShadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --colorBgGrey: #f5f5f7;
+}
+
+body {
+  font: 16px 'Nunito Sans', Arial, 'sans-serif';
+  font-weight: 500;
+  color: var(--colorBlack);
+  margin: 0;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245 245 247 / 1);
+}
+
+.component {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  border: 0px solid var(--colorNoActive);
+  background: var(--colorWhite);
+  padding: 40px 60px;
+  box-sizing: border-box;
+  box-shadow: var(----colorRingShadow, 0 0 #0000), var(--colorRingShadow, 0 0 #0000), var(--colorShadow);
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2::before {
+  content: url("./ressources/images/logo_microlead.png");
+  position: absolute;
+  margin-top: -30px;
+  margin-left: -35px;
+}
+
+p{
+  margin: 0;
+  text-align: center;
+}
+
+.download{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 80px 0;
+}
+
+a{
+  text-decoration-color: var(--colorNoActive);
+  color: var(--colorNoActive);
+  font-weight: 700;
+}
+
+a:hover{
+  text-decoration-color: var(--colorActive);
+  color: var(--colorActive);
+}
+
+form{
+  min-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.formRow{
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+
+label{
+  font-weight: 400;
+}
+
+input[type="file"]::file-selector-button {
+  font-family: 'Nunito Sans';
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--colorWhite);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  background-color: var(--colorNoActive);
+  box-shadow: 0 4px 4px 0 var(--colorBoxShadow);
+  cursor: pointer;
+}
+
+button{
+  width: 200px;
+  height: 45px;
+  font-family: 'Nunito Sans';
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--colorWhite);
+  border: none;
+  border-radius: 8px;
+  background-color: var(--colorNoActive);
+  box-shadow: 0 4px 4px 0 var(--colorBoxShadow);
+  margin-top: 10px;
+  align-self: center;
+  cursor: pointer;
+}
+
+button:hover, 
+input[type="file"]::file-selector-button:hover{
+  background-color: var(--colorActive);
+}
+
+.errorDiv{
+  height: 100px;
+}
+
+.errorOnForm{ 
+  width: 480px;
+  max-height: 90px;
+  text-align: left;
+  color: var(--colorError);
+  overflow-y: auto;
+}
+
+.errorOnForm::-webkit-scrollbar,
+.script::-webkit-scrollbar {
+  box-shadow: var(----colorRingShadow, 0 0 #0000), var(--colorRingShadow, 0 0 #0000), var(--colorShadow);
+  border-radius: 0.625rem;
+}
+
+.success{ 
+  width: 480px;
+  text-align: left;
+  color: var(--colorSuccess);
+}
+
+.connection{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.port{
+  width: 40px;
+}
+
+.scriptContainer {
+  max-width: 90%;
+  min-width: 90%;
+  overflow: hidden;
+  text-align: right;
+  margin-top: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid var(--colorActive);
+  border-radius: 10px;
+}
+
+.script {
+  width : 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+  margin: 25px 0 20px 0;
+}
+
+.copy {
+  width: 50px;
+} 
+
+

@@ -1,0 +1,162 @@
+# English
+
+CSV (Comma Separated Values) format instructions
+
+    Download Template;
+    Copy from table_name to value to add tables;
+    Add as many value lines as you have entries to record;
+    Refer to the Example and indications below for filling.
+
+
+Additional information :
+
+    The script uses standard SQL query language, but is still based on MySQL 8.0 DBMS. 
+    It follows general conventions to ensure compatibility with other DBMSs.
+    The checks carried out on the CSV file before it is transcribed into SQL, whether they concern file loading or SQL data, will return a detailed message in the event of an error.
+
+    File encoding : 
+        The file will be encoded in utf8 before processing.
+
+    CSV separator tag: 
+        Only commas are accepted as separator tags.
+
+    Line headers:
+        Only the following headers will be accepted: db, table_name, column_name, data_type, max_size (or property, parameters), primary_key, not_null, unique, binary, unsigned, zero_fill, auto_increment, generated, default_expression, foreign_key, references, password_hash, value.
+        See example and template.
+
+          If you don't want a value to be considered, i.e. to be "false", you can leave them empty.
+
+    Allowed characters for names (database, tables, columns) :
+        Only the following characters are accepted: a-z A-Z 0-9 _ 
+        Names cannot start with a number or be empty. 
+        Valid examples: 
+            my_database
+            my_database2
+            MyDataBase
+            _ma_bdd
+            ...
+
+    Database name :
+        This will be either in the file (1st line, 2nd column) or extracted from the file name.
+
+    Data types:
+        To guarantee compatibility with other DBMS, all data types are accepted.
+        Allowed characters are: a-z A-Z.
+        They will be forced in Upper case.
+
+    max_size or properties, data type parameters:
+        To ensure compatibility with other DBMS, there is no limit on their size and their association with the data type.
+        
+        If you need to declare several parameters, they will be separated by a comma and enclosed in "".
+        Example for DOUBLE(size,d):
+            data_type,DOUBLE
+            max_size, "10,5
+        WARNING: Values will not be rejected, but will create an error in your script.
+
+    Primary keys:
+        They may not exist for a table, or may be a compound primary key.
+    
+    Foreign keys:
+        The reference must consist of the table name and column name separated by a period.
+
+    Password_hash :
+        Allows you to hash the value with the php function of the same name.
+
+    Text values: 
+        If they include commas, they must be enclosed in "" so as not to be confused with the separator tag.
+        WARNING: Values will not be rejected but will create an error in your script.
+        Example:
+            value,1,Item 1, "Description, of item 1",10.00,
+    
+
+The script
+
+   You can use it as follows:
+        - If you have no changes to make, you can connect to your Localhost database by filling in the form.
+        - If you wish to modify the script, for example to add triggers or adapt it to another DBMS, you can copy it by clicking on the appropriate button.
+
+    Generally speaking, the charset, collation and engine are the default, but if in doubt, 
+    it's always best to consult the documentation for the DBMS you're using.
+
+
+
+# French
+
+
+Instructions format du CSV (Comma Separated Values)
+
+    Télécharger le Modèle (Template);
+    Copier depuis table_name jusqu'à value pour ajouter des tables;
+    Ajouter autant de lignes value que vous avez d'entrées à enregistrer;
+    Reportez-vous à l'Exemple et aux indications ci-dessous pour le remplissage.
+
+
+Indications complémentaires :
+
+    Le script utilise le langage de requête SQL standard mais reste tout de même basé sur la SGBD MySQL 8.0. 
+    Il respecte les conventions générales pour garantir la compatibilité avec d'autres SGBD.
+    Les vérifications qui sont effectuées sur le fichier CSV avant sa transcription en SQL, qu'elles soient sur le chargement du fichier ou relatives aux données SQL vous renveront un message détaillé en cas d'erreur.
+
+    L'encodage du fichier : 
+        Le fichier sera encodé en utf8 avant son traitement.
+
+    La balise de séparation CSV : 
+        Seule la virgule est acceptée comme balise de séparation.
+
+    Les entêtes de lignes :
+        Seules les entêtes suivantes seront acceptées : db, table_name, column_name, data_type, max_size (ou propriété, paramètres), primary_key, not_null, unique, binary, unsigned, zero_fill, auto_increment, generated, default_expression, foreign_key, references, password_hash, value.
+        Reportez-vous à l'exemple et au modèle.
+
+        Si vous souhaitez qu'une valeur ne soit pas considérée, c'est-à-dire qu'elle soit "false", vous pouvez les laisser vides.
+
+    Caractères autorisés pour les noms (bdd, tables, colonnes) :
+        Seuls les caractères suivants sont acceptés : a-z A-Z 0-9 _ 
+        Les noms ne peuvent pas débuter par un chiffre ou être vide. 
+        Exemples valides : 
+            ma_base_de_donnees
+            ma_base_de_donnees2
+            MaBaseDeDonnee
+            _ma_bdd
+            ...
+
+    Le nom de la base de données :
+        Il sera soit dans le fichier (1ère ligne, 2ème colonne) soit extrait du nom du fichier.
+
+    Les types de données :
+        Afin de garantir la compatibilité avec d'autres SGBD, tous les types de données sont acceptés.
+        Les caractères autorisés sont : a-z A-Z.
+        Ils seront forcés en Upper case.
+
+    Le max_size ou les propriétés, paramètres du type de données:
+        Toujours pour garantir la compatibilité avec d'autres SGBD, aucune limite n'est fixée sur leur taille et leur association au type de données.
+        
+        Si vous devez déclarer plusieurs paramètres, ils seront séparés par une virgule et encadrés de "".
+        Exemple pour DOUBLE(size,d) :
+            data_type,DOUBLE
+            max_size,"10,5"
+        ATTENTION : Les valeurs ne seront pas rejetées mais créeront une erreur dans votre script.
+
+    Les clés primaires :
+        Elles peuvent ne pas exister pour une table, être une clé primaire composée.
+    
+    Les clés étrangères :
+        La référence devra être constituée du nom de la table et de la colonne séparés par un point.
+
+    Password_hash :
+        Permet de hasher la valeur avec la fonction php du même nom.
+
+    Les valeurs de type texte : 
+        Si elles comportent des virgules, elles doivent être encadrées de "" afin de ne pas être confondu avec la balise de séparation.
+        ATTENTION : Les valeurs ne seront pas rejetées mais créeront une erreur dans votre script.
+        Exemple :
+            value,1,Article 1,"Description, de l'article 1",10.00,
+    
+
+Le script
+
+   Vous pouvez l'utiliser comme suit :
+        - Si vous n'avez pas de modification à faire, vous pouvez vous connecter à votre base de données en Localhost en remplissant le formulaire.
+        - Si vous souhaitez le modifier, ajouter par exemple des triggers ou l'adapter à une autre SGBD, vous pouvez le copier en cliquant sur le bouton prévu à cet effet.
+
+    Généralement, le charset, la collation et l'engine sont ceux par défault mais, en cas de doute, 
+    il est toujours préférable de consulter la documentation du SGBD que vous utilisez.
